@@ -1,0 +1,11 @@
+%h1 Downloads
+%table
+  %tr
+    %th File
+    %th Size
+  - for file in @files
+    - if File.file?(file)
+      %tr
+        %td
+          %a{:title => file, :href => '/download/' + File.basename(file)}=File.basename(file)
+        %td= File.size(file).to_s + "b"
